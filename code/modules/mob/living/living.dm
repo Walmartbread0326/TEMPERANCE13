@@ -1907,15 +1907,6 @@
 	return
 
 /mob/living/look_up()
-	if(client.perspective != MOB_PERSPECTIVE) //We are already looking up.
-		stop_looking()
-		return
-	if(client.pixel_x || client.pixel_y)
-		stop_looking()
-		return
-	if(!can_look_up())
-		return
-	changeNext_move(CLICK_CD_MELEE)
 	if(m_intent != MOVE_INTENT_SNEAK)
 		visible_message(span_info("[src] looks up."))
 	var/turf/ceiling = get_step_multiz(src, UP)
@@ -1958,25 +1949,12 @@
 //	RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(stop_looking)) //We stop looking up if we move.
 
 /mob/living/proc/look_further(turf/T)
-	if(client.perspective != MOB_PERSPECTIVE)
-		stop_looking()
-		return
-	if(client.pixel_x || client.pixel_y)
-		stop_looking()
-		return
-	if(!can_look_up())
-		return
-	if(!istype(T))
-		return
-	changeNext_move(CLICK_CD_MELEE)
-
 	var/_x = T.x-loc.x
 	var/_y = T.y-loc.y
 	if(_x > 7 || _x < -7)
 		return
 	if(_y > 7 || _y < -7)
 		return
-	hide_cone()
 	var/ttime = 11
 	if(STAPER > 5)
 		ttime = 10 - (STAPER - 5)
