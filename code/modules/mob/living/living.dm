@@ -1974,7 +1974,7 @@
 
 	var/_x = T.x-loc.x
 	var/_y = T.y-loc.y
-var/dist = get_dist(src, T)
+	var/dist = get_dist(src, T)
 	var/message = span_info("[src] looks into the distance.")
 	if(dist > 7 || dist  <= 2)
 		return
