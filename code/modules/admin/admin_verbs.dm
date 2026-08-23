@@ -38,6 +38,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/admin_spread_effect,
 	/client/proc/open_bounty_menu,
 	/client/proc/remove_bounty,
+	/client/proc/agevet_player,
 	// RATWOOD MODULAR START
 	/client/proc/bunker_bypass,
 	// RATWOOD MODULAR END
@@ -207,7 +208,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/datum/admins/proc/create_or_modify_area,
 	/client/proc/returntolobby,
 	/client/proc/set_tod_override,
-	/client/proc/stresstest_chat
+	/client/proc/stresstest_chat,
+	/client/proc/debug_faction_pop
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, GLOBAL_PROC_REF(release)))
 GLOBAL_PROTECT(admin_verbs_possess)
@@ -887,7 +889,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			scom_announce("An unknown force has erased the bounty on [target_name]. The gods are displeased.")
 			message_admins("[ADMIN_LOOKUPFLW(src)] has removed the bounty on [ADMIN_LOOKUPFLW(target_name)]")
 			return
-	to_chat(src, "Error. Bounty no longer active.") 
+	to_chat(src, "Error. Bounty no longer active.")
 
 /client/proc/enable_browser_debug()
 	set category = "Debug"
