@@ -2018,7 +2018,7 @@
 	if(m_intent != MOVE_INTENT_SNEAK)
 		if(_y == 0 && _x == 0)	//Their PER was too low to see anything.
 			message = span_info("[src] oafishly stares in front of themselves.")
-		visible_message(span_info("[src] looks into the distance."))
+		visible_message(message)
 	animate(client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, ttime)
 //	RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(stop_looking))
 	update_cone_show()
